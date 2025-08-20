@@ -1,20 +1,81 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      ShoppingApp
     </ion-title>
+ 
   </ion-toolbar>
 </ion-header>
-
+ 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
+    <ion-header [translucent]="true">
+      <ion-toolbar>
+        <!-- <ion-title>ShoppingApp</ion-title> -->
+       
+      </ion-toolbar>
+    </ion-header>
+ 
   </ion-header>
+ 
+ 
+  <div>
+    <!-- <ion-chip>Default</ion-chip>
+    <ion-chip [disabled]="true">Disabled</ion-chip>
+    <ion-chip [outline]="true">Outline</ion-chip> -->
+    <ion-chip slot="end" color="primary"><ion-label>Login</ion-label></ion-chip>
+        <ion-chip slot="end" color="danger"><ion-label>Logoff</ion-label></ion-chip>
+    <br>
+ 
+ 
+ 
+    <strong>Shop with ease</strong>
+    <p>Explore products from top brand </p>
+    <p>More content coming soon </p>
+    <p> By {{developedBy}}</p>
+    <ion-button (click)="greetUser()">Click Me</ion-button>
+ 
+ 
+ 
+    <br>
+    <ion-button routerLink="/register" color="success">
+      Go to Register
+    </ion-button>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-button routerLink="/products" color="success">
+      products
+    </ion-button>
+
+     <ion-button routerLink="/login" color="success">
+      Login
+    </ion-button>
+    <ion-button routerLink="/browse" color="success">
+     browse
+    </ion-button>
+    
+ 
+ 
+    <ion-card *ngFor="let product of productList">
+      <ion-card-header>
+        <ion-card-title>{{product.pName}}</ion-card-title>
+        <ion-card-subtitle>{{product.pBrand}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <p>ID: {{product.pId}}</p>
+        <p>Price: ₹{{product.pPrice}}</p>
+        <ion-button fill="clear" color="danger">
+          <ion-icon slot="icon-only" name="heart"></ion-icon>
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+ 
+ 
+ 
+ 
+ 
+  </div>
+ 
+  <div>
+ 
   </div>
 </ion-content>
