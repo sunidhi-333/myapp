@@ -8,9 +8,10 @@ import {
   IonInput,
   IonButton
 } from '@ionic/angular/standalone';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Security } from '../service/security';
 
 
 @Component({
@@ -31,15 +32,18 @@ import { FormsModule } from '@angular/forms';
     IonButton     // ✅ Needed for <ion-button>
   ]
 })
-export class LoginPage{
+export class LoginPage implements OnInit {
   email: string = '';
   password: string = '';
-
+username: string = '';
+_security: Security;
   loginUser() {
     console.log('Logging in with:', this.email, this.password);
   }
 
-  constructor() {}
+  constructor(_securityref: Security) {
+    this._security = _securityref;
+  }
 
   ngOnInit() {}
 }

@@ -5,7 +5,7 @@ import { ActivatedRouteSnapshot, CanActivate, GuardResult, MaybeAsync, RouterSta
   providedIn: 'root'
 })
 export class Security implements CanActivate {
-  isUserLoggedIn: boolean = false;
+   isUserLoggedIn: boolean = false;
   userName='Welcome User';
   password='1234';
   Loginmessage = 'Please Login';
@@ -13,11 +13,16 @@ export class Security implements CanActivate {
  
   takeCredentials(user:string,pass:string){
   if(this.userName=='sunidhi' && this.password=='1234'){
+    alert('login req');
+    console.log('username'+this.userName);
+    console.log('password'+this.password);
     this.isUserLoggedIn=true;
     this.Loginmessage = 'Welcome'+ this.userName; 
-
-
-
+  }
+  else{
+    this.isUserLoggedIn=false;
+    this.Loginmessage = 'Invalid Credentials';
+  }
   }
   canActivate():boolean{
     if(this.userName=='devaanshi'&& this.password=='1234'){
